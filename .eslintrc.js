@@ -38,5 +38,6 @@ module.exports = {
     "react/display-name": "off",
     indent: "off",
     quotes: "off",
+    "linebreak-style": 0,
   },
 };
