@@ -39,5 +39,6 @@ module.exports = {
     indent: "off",
     quotes: "off",
     "linebreak-style": 0,
+    "object-curly-newline": 0,
   },
 };

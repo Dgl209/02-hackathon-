@@ -1,5 +1,5 @@
 import React from "react";
-import { Main, User, Bookmarks } from "../pages";
+import { Main, User, Bookmarks, Registration, Login } from "../pages";
 
 const appRoutes = [
   {
@@ -13,6 +13,14 @@ const appRoutes = [
   {
     path: "/bookmarks",
     element: <Bookmarks />,
+  },
+  {
+    path: "/signup",
+    element: <Registration />,
+  },
+  {
+    path: "/signin",
+    element: <Login />,
   },
 ];
 
