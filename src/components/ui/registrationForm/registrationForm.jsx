@@ -52,6 +52,13 @@ function RegistrationForm() {
         error={errors.about?.message}
       />
       <TextField
+        id="speciality"
+        register={register}
+        label="Speciality"
+        options={{ required: "Speciality is required field" }}
+        error={errors.speciality?.message}
+      />
+      <TextField
         id="email"
         register={register}
         label="Email"

@@ -1,9 +1,14 @@
 import React from "react";
-import { Button, TextAreaField } from "../../common";
-import { TextField } from "../../common";
 import { useForm } from "react-hook-form";
+import { nanoid } from "nanoid";
+import { useDispatch, useSelector } from "react-redux";
+import { Button, TextAreaField, TextField } from "../../common";
+import { createTeam } from "../../../store/team/team.actions";
+import { getAccountId } from "../../../store/auth/auth.selectors";
 
 function CreateTeamForm() {
+  const dispatch = useDispatch();
+  const leader = useSelector(getAccountId());
   const {
     register,
     handleSubmit,
@@ -11,7 +16,10 @@ function CreateTeamForm() {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log("onSubmit: ", data);
+    const id = nanoid();
+    dispatch(
+      createTeam({ ...data, id, leader, members: [leader], role: "general" })
+    );
   };
 
   return (

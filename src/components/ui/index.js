@@ -4,6 +4,7 @@ import LoginForm from "./loginForm/loginForm";
 import TeamDetails from "./teamDetails/teamDetails";
 import TeamMember from "./teamMember/teamMember";
 import CreateTeamForm from "./createTeamForm/createTeamForm";
+import Team from "./team/team";
 
 export {
   HeaderNav,
@@ -12,4 +13,5 @@ export {
   TeamDetails,
   TeamMember,
   CreateTeamForm,
+  Team,
 };

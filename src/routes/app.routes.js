@@ -1,4 +1,5 @@
 import React from "react";
+import { TeamDetails } from "../components/ui";
 import {
   Main,
   User,
@@ -6,6 +7,7 @@ import {
   Registration,
   Login,
   CreateTeam,
+  Teams,
 } from "../pages";
 
 const appRoutes = [
@@ -32,6 +34,14 @@ const appRoutes = [
   {
     path: "/create-team",
     element: <CreateTeam />,
+  },
+  {
+    path: "/teams",
+    element: <Teams />,
+  },
+  {
+    path: "/:id",
+    element: <TeamDetails />,
   },
 ];
 
