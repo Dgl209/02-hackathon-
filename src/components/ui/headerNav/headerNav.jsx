@@ -1,18 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import HeaderItem from "./headerItem/headerItem";
+import DefaultUserImg from "../../../assets/defaultUserImg.png";
+import {
+  getAccountId,
+  getLoggedInStatus,
+} from "../../../store/auth/auth.selectors";
+import { getAccountData } from "../../../store/account/account.selectors";
 
 function HeaderNav() {
-  const isLoggedIn = false;
+  const isLoggedIn = useSelector(getLoggedInStatus());
+  const currentUserId = useSelector(getAccountId());
+  const accountData = useSelector(getAccountData());
+
   return (
     <>
       <div className="flex items-center justify-end w-4/12 md:order-2">
         {isLoggedIn ? (
           <Link
-            to="/user/0"
+            to={`/user/${currentUserId}`}
             className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
           >
-            <h5 className="text-white">User photo</h5>
+            <img
+              className="w-8 rounded-full"
+              src={accountData?.avatar || DefaultUserImg}
+              alt=""
+            />
           </Link>
         ) : (
           <Link
