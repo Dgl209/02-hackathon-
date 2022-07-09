@@ -101,7 +101,7 @@ function User() {
         <h5 className="mb-10 text-3xl font-bold underline tracking-tight text-gray-700 dark:text-white">
           {user?.fullName}
         </h5>
-        <div className="text-lg mb-10">Возраст: {accountData?.age}</div>
+        <div className="text-lg mb-10">Возраст: {user?.age}</div>
         <p className="font-normal text-lg text-gray-700 dark:text-gray-400">
           Немного о себе: {user?.about}
         </p>

@@ -46,6 +46,7 @@ function HeaderNav() {
         <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
           <HeaderItem label="Home" path="/" />
           <HeaderItem label="Bookmarks" path="/bookmarks" />
+          <HeaderItem label="Create new team" path="/create-team" />
         </ul>
       </div>
     </>
