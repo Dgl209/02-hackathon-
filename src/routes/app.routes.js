@@ -8,12 +8,17 @@ import {
   Login,
   CreateTeam,
   Teams,
+  NotFound,
 } from "../pages";
 
 const appRoutes = [
   {
     path: "/",
     element: <Main />,
+  },
+  {
+    path: "*",
+    element: <NotFound />,
   },
   {
     path: "/user/:id",
