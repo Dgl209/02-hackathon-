@@ -1,6 +1,5 @@
 import TextField from "./form/textField";
 import TextAreaField from "./form/textAreaField";
-import LightButton from "./buttons/lightButton";
-import PurpleButton from "./buttons/purpleButton";
+import Button from "./button/buttons";
 
-export { TextField, TextAreaField, LightButton, PurpleButton };
+export { TextField, TextAreaField, Button };
