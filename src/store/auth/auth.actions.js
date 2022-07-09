@@ -7,6 +7,7 @@ import {
   loadAccountById,
 } from "../account/account.actions";
 import { customHistory } from "../../utils/core";
+import { handleError } from "../errors/errors.actions";
 
 const { succeed, loggedOut } = authSlice.actions;
 const requested = createAction("auth/requested");
@@ -21,13 +22,15 @@ const signUp =
       localStorageService.setTokens(data);
       dispatch(succeed(data.localId));
       dispatch(createAccount({ id: data.localId, email, ...rest }));
+      customHistory.push("/");
     } catch (error) {
       dispatch(failed());
+      dispatch(handleError(error));
     }
   };
 
 const singIn =
-  ({ email, password, handleHideModal }) =>
+  ({ email, password }) =>
   async (dispatch) => {
     dispatch(requested());
     try {
@@ -35,9 +38,10 @@ const singIn =
       localStorageService.setTokens(data);
       dispatch(succeed(data.localId));
       dispatch(loadAccountById(data.localId));
-      handleHideModal();
+      customHistory.push("/");
     } catch (error) {
       dispatch(failed());
+      dispatch(handleError(error));
     }
   };
 

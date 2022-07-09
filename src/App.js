@@ -1,10 +1,19 @@
 import React from "react";
 import { useRoutes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import routes from "./routes";
-import AccountUploader from "./hoc/accountUploader/accountUploader";
+import { AccountUploader, ErrorHandler } from "./hoc";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-  return <AccountUploader>{useRoutes(routes)}</AccountUploader>;
+  return (
+    <ErrorHandler>
+      <AccountUploader>
+        {useRoutes(routes)}
+        <ToastContainer />
+      </AccountUploader>
+    </ErrorHandler>
+  );
 }
 
 export default App;
