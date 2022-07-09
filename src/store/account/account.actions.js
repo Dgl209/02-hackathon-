@@ -1,6 +1,7 @@
 import { createAction } from "@reduxjs/toolkit";
 import accountSlice from "./account.slice";
 import userService from "../../services/user.service";
+import { handleError } from "../errors/errors.actions";
 
 const { created, requested, received, failed, removed, updated } =
   accountSlice.actions;
@@ -16,6 +17,7 @@ const createAccount = (payload) => async (dispatch) => {
     dispatch(created(content));
   } catch (error) {
     dispatch(creationFailed());
+    dispatch(handleError(error));
   }
 };
 
@@ -26,6 +28,7 @@ const loadAccountById = (id) => async (dispatch) => {
     dispatch(received(content));
   } catch (error) {
     dispatch(failed());
+    dispatch(handleError(error));
   }
 };
 
@@ -48,6 +51,7 @@ const updateAccountAvatar = (url) => async (dispatch, getState) => {
     dispatch(updated(content));
   } catch (error) {
     dispatch(updateFailed());
+    dispatch(handleError(error));
   }
 };
 
