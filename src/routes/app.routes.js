@@ -1,5 +1,12 @@
 import React from "react";
-import { Main, User, Bookmarks, Registration, Login } from "../pages";
+import {
+  Main,
+  User,
+  Bookmarks,
+  Registration,
+  Login,
+  CreateTeam,
+} from "../pages";
 
 const appRoutes = [
   {
@@ -21,6 +28,10 @@ const appRoutes = [
   {
     path: "/signin",
     element: <Login />,
+  },
+  {
+    path: "/create-team",
+    element: <CreateTeam />,
   },
 ];
 
