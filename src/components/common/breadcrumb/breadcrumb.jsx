@@ -26,7 +26,7 @@ function Breadcrumb({ items }) {
           </Link>
         </li>
         {items?.map((item) => (
-          <li>
+          <li key={item.path}>
             <div className="flex items-center">
               <svg
                 className="w-6 h-6 text-gray-400"

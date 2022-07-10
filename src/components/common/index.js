@@ -7,6 +7,8 @@ import Badge from "./badge/badge";
 import ImageField from "./form/imageField";
 import Slider from "./slider/slider";
 import Breadcrumb from "./breadcrumb/breadcrumb";
+import ProgressBar from "./progressBar/progressBar";
+import RangeField from "./form/rangeField";
 
 export {
   TextField,
@@ -18,4 +20,6 @@ export {
   ImageField,
   Slider,
   Breadcrumb,
+  ProgressBar,
+  RangeField,
 };
