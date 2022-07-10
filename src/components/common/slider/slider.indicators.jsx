@@ -24,6 +24,12 @@ function SliderIndicators({ items, selected, handleIndicators }) {
   );
 }
 
+SliderIndicators.defaultProps = {
+  items: [],
+  selected: null,
+  handleIndicators: null,
+};
+
 SliderIndicators.propTypes = {
   items: PropTypes.array,
   selected: PropTypes.number,

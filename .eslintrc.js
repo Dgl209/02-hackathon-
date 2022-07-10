@@ -51,5 +51,8 @@ module.exports = {
     "jsx-a11y/no-noninteractive-element-interactions": 0,
     "arrow-body-style": 0,
     "no-return-await": 0,
+    "react/no-array-index-key": 0,
+    "react/require-default-props": 0,
+    "no-shadow": 0,
   },
 };
