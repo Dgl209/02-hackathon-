@@ -3,6 +3,7 @@ import teamSlice from "./team.slice";
 import { handleError } from "../errors/errors.actions";
 import { teamService } from "../../services";
 import { customHistory } from "../../utils/core";
+import storageService from "../../services/storage.service";
 
 const { created, requested, received, failed, updated } = teamSlice.actions;
 const creationRequested = createAction("team/creationRequested");
@@ -13,7 +14,21 @@ const updateFailed = createAction("team/updateFailed");
 const createTeam = (payload) => async (dispatch) => {
   dispatch(creationRequested());
   try {
-    const { content } = await teamService.create(payload);
+    const image = await storageService.uploadTeamImage(
+      payload.image[0],
+      payload.id
+    );
+    const projects = await storageService.uploadTeamProjectsImages(
+      payload.projects,
+      payload.id
+    );
+    const projectsUrl = await Promise.all(projects);
+    const newData = {
+      ...payload,
+      image,
+      projects: projectsUrl,
+    };
+    const { content } = await teamService.create(newData);
     dispatch(created(content));
     customHistory.push("/teams");
   } catch (error) {
