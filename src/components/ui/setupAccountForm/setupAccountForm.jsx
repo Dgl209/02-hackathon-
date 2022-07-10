@@ -8,7 +8,7 @@ import {
   getAccountLoadingStatus,
 } from "../../../store/account/account.selectors";
 
-function UserSkills() {
+function SetupAccountForm() {
   const { register, handleSubmit } = useForm();
   const dispatch = useDispatch();
   const accountData = useSelector(getAccountData());
@@ -70,11 +70,11 @@ function UserSkills() {
             defaultValue={accountData?.skills?.nodejs}
             label="NodeJS"
           />
-          <Button name="Save" type="submit" color="light" />
+          <Button name="Save" type="submit" color="purple" />
         </form>
       </Card>
     )
   );
 }
 
-export default UserSkills;
+export default SetupAccountForm;

@@ -5,6 +5,7 @@ import TeamDetails from "./teamDetails/teamDetails";
 import TeamMember from "./teamMember/teamMember";
 import CreateTeamForm from "./createTeamForm/createTeamForm";
 import Team from "./team/team";
+import SetupAccountForm from "./setupAccountForm/setupAccountForm";
 
 export {
   HeaderNav,
@@ -14,4 +15,5 @@ export {
   TeamMember,
   CreateTeamForm,
   Team,
+  SetupAccountForm,
 };

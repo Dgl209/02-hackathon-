@@ -9,6 +9,7 @@ import {
   CreateTeam,
   Teams,
   NotFound,
+  EditUser,
 } from "../pages";
 import { PrivateRoute } from "../hoc";
 
@@ -24,6 +25,14 @@ const appRoutes = [
   {
     path: "/user/:id",
     element: <User />,
+  },
+  {
+    path: "/user/:id/edit",
+    element: (
+      <PrivateRoute>
+        <EditUser />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/bookmarks",
