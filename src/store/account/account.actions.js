@@ -2,6 +2,7 @@ import { createAction } from "@reduxjs/toolkit";
 import accountSlice from "./account.slice";
 import userService from "../../services/user.service";
 import { handleError } from "../errors/errors.actions";
+import { customHistory } from "../../utils/core";
 
 const { created, requested, received, failed, removed, updated } =
   accountSlice.actions;
@@ -65,6 +66,7 @@ const updateAccountSkills = (payload) => async (dispatch, getState) => {
   try {
     const { content } = await userService.update(newData);
     dispatch(updated(content));
+    customHistory.push(`/user/${accountData.id}`);
   } catch (error) {
     dispatch(updateFailed());
     dispatch(handleError(error));
