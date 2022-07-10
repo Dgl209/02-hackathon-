@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Card, List } from "../../common";
+import { Button, Card, List, Slider } from "../../common";
 import DefaultTeamImg from "../../../assets/defaultTeamImg.jpg";
 import TeamMember from "../teamMember/teamMember";
 import { updateMembers } from "../../../store/team/team.actions";
@@ -21,7 +21,7 @@ function TeamDetails() {
     setInTeam((prev) => !prev);
   };
 
-  return (
+  return team ? (
     <div className="container mx-auto p-6">
       <Card className="flex flex-col items-center justify-center">
         <div className="flex justify-between w-full">
@@ -49,6 +49,12 @@ function TeamDetails() {
           </div>
         </div>
       </Card>
+      <Card className="w-full h-full">
+        <h5 className="mb-10 text-4xl text-center font-bold tracking-tight text-gray-900 dark:text-white">
+          Team projects
+        </h5>
+        <Slider items={team?.projects} />
+      </Card>
       {team?.members?.length ? (
         <div className="flex flex-col items-center mt-20">
           <h5 className="mb-10 text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -58,7 +64,7 @@ function TeamDetails() {
         </div>
       ) : null}
     </div>
-  );
+  ) : null;
 }
 
 export default TeamDetails;

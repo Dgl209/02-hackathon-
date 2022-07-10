@@ -20,7 +20,7 @@ function Bookmarks() {
       ) : (
         <div className="w-full flex flex-col items-center space-y-3 justify-center pt-6">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            The teams list is empty
+            Bookmarks list is empty
           </h5>
           <Button
             name="Main page"
