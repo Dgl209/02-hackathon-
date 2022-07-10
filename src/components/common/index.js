@@ -6,6 +6,7 @@ import List from "./list/list";
 import Badge from "./badge/badge";
 import ImageField from "./form/imageField";
 import Slider from "./slider/slider";
+import Breadcrumb from "./breadcrumb/breadcrumb";
 
 export {
   TextField,
@@ -16,4 +17,5 @@ export {
   Badge,
   ImageField,
   Slider,
+  Breadcrumb,
 };
