@@ -10,6 +10,7 @@ import {
   Teams,
   NotFound,
 } from "../pages";
+import { PrivateRoute } from "../hoc";
 
 const appRoutes = [
   {
@@ -26,7 +27,11 @@ const appRoutes = [
   },
   {
     path: "/bookmarks",
-    element: <Bookmarks />,
+    element: (
+      <PrivateRoute>
+        <Bookmarks />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/signup",
@@ -38,15 +43,27 @@ const appRoutes = [
   },
   {
     path: "/create-team",
-    element: <CreateTeam />,
+    element: (
+      <PrivateRoute>
+        <CreateTeam />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/teams",
-    element: <Teams />,
+    element: (
+      <PrivateRoute>
+        <Teams />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/:id",
-    element: <TeamDetails />,
+    element: (
+      <PrivateRoute>
+        <TeamDetails />
+      </PrivateRoute>
+    ),
   },
 ];
 
