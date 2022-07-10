@@ -5,7 +5,6 @@ import { Card } from "../../common";
 import DefaultTeamImg from "../../../assets/defaultTeamImg.jpg";
 
 function Team({ item }) {
-  console.log("teat item: ", item);
   return (
     <Card className="w-60 h-[270px]">
       <Link to={`/${item.id}`}>

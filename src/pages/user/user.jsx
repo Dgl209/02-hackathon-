@@ -21,6 +21,8 @@ function User() {
   const inputRef = useRef();
   const urlRef = useRef();
 
+  console.log("user: ", user);
+
   useEffect(() => {
     async function loadUser() {
       try {
