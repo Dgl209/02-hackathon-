@@ -36,25 +36,25 @@ const loadTeams = () => async (dispatch) => {
 const updateMembers = (memberId, teamId) => async (dispatch, getState) => {
   dispatch(updateRequested());
   const team = getState().team.entities.find((x) => x.id === teamId);
+  let newData;
+  if (team.members && team.members.includes(memberId)) {
+    const filteredTeamMembers = team.members.filter((x) => x !== memberId);
+    newData = {
+      ...team,
+      members: filteredTeamMembers,
+    };
+  } else if (team.members) {
+    newData = {
+      ...team,
+      members: [...team.members, memberId],
+    };
+  } else {
+    newData = {
+      ...team,
+      members: [memberId],
+    };
+  }
   try {
-    let newData;
-    if (team.members && team.members.includes(memberId)) {
-      const filteredTeamMembers = team.members.filter((x) => x !== memberId);
-      newData = {
-        ...team,
-        members: filteredTeamMembers,
-      };
-    } else if (team.members) {
-      newData = {
-        ...team,
-        members: [...team.members, memberId],
-      };
-    } else {
-      newData = {
-        ...team,
-        members: [memberId],
-      };
-    }
     const { content } = await teamService.update(newData);
     dispatch(updated(content));
   } catch (error) {

@@ -55,9 +55,40 @@ const updateAccountAvatar = (url) => async (dispatch, getState) => {
   }
 };
 
+const updateBookmarks = (payload) => async (dispatch, getState) => {
+  dispatch(updateRequested());
+  const accountData = getState().account.entity;
+  let newData;
+  if (accountData.bookmarks && accountData.bookmarks.includes(payload)) {
+    const filteredWishlist = accountData.bookmarks.filter((x) => x !== payload);
+    newData = {
+      ...accountData,
+      bookmarks: filteredWishlist,
+    };
+  } else if (accountData.bookmarks) {
+    newData = {
+      ...accountData,
+      bookmarks: [...accountData.bookmarks, payload],
+    };
+  } else {
+    newData = {
+      ...accountData,
+      bookmarks: [payload],
+    };
+  }
+  try {
+    const { content } = await userService.update(newData);
+    dispatch(updated(content));
+  } catch (error) {
+    dispatch(updateFailed());
+    dispatch(handleError(error));
+  }
+};
+
 export {
   createAccount,
   loadAccountById,
   removeAccountData,
   updateAccountAvatar,
+  updateBookmarks,
 };
