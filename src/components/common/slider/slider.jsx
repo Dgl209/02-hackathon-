@@ -28,21 +28,6 @@ function Slider({ items }) {
     carouselRef.current = new Carousel(items, options);
   }, []);
 
-  const onNext = () => {
-    carouselRef.current.next();
-    setSelectedIndicator((prev) => indicatorIncrement(prev));
-  };
-
-  const onPrev = () => {
-    carouselRef.current.prev();
-    setSelectedIndicator((prev) => indicatorDecrement(prev));
-  };
-
-  const handleIndicators = (id) => {
-    carouselRef.current.slideTo(id);
-    setSelectedIndicator(id);
-  };
-
   const indicatorIncrement = (num) => {
     const incremented = num + 1;
     if (incremented > items.length - 1) {
@@ -57,6 +42,21 @@ function Slider({ items }) {
       return items.length - 1;
     }
     return decremented;
+  };
+
+  const onNext = () => {
+    carouselRef.current.next();
+    setSelectedIndicator((prev) => indicatorIncrement(prev));
+  };
+
+  const onPrev = () => {
+    carouselRef.current.prev();
+    setSelectedIndicator((prev) => indicatorDecrement(prev));
+  };
+
+  const handleIndicators = (id) => {
+    carouselRef.current.slideTo(id);
+    setSelectedIndicator(id);
   };
 
   return (
@@ -90,6 +90,10 @@ function Slider({ items }) {
     </div>
   );
 }
+
+Slider.defaultProps = {
+  items: [],
+};
 
 Slider.propTypes = {
   items: PropTypes.array,

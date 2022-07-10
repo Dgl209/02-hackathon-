@@ -56,6 +56,11 @@ function SliderControls({ onNext, onPrev }) {
   );
 }
 
+SliderControls.defaultProps = {
+  onNext: null,
+  onPrev: null,
+};
+
 SliderControls.propTypes = {
   onNext: PropTypes.func,
   onPrev: PropTypes.func,
