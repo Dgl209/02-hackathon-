@@ -24,7 +24,7 @@ function TeamDetails() {
   return team ? (
     <div className="container mx-auto p-6">
       <div className="mb-6">
-        <Breadcrumb items={[{ name: "Teams", path: "/teams" }]} />
+        {id ? <Breadcrumb items={[{ name: "Teams", path: "/teams" }]} /> : null}
       </div>
       <Card className="flex flex-col items-center justify-center">
         <div className="flex justify-between w-full">
