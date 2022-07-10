@@ -44,10 +44,10 @@ function HeaderNav() {
         id="mobile-menu-2"
       >
         <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
-          <HeaderItem label="Home" path="/" />
           <HeaderItem label="Bookmarks" path="/bookmarks" />
           <HeaderItem label="Teams" path="/teams" />
           <HeaderItem label="Create new team" path="/create-team" />
+          <HeaderItem label="Reviews" path="/reviews" />
         </ul>
       </div>
     </>
