@@ -39,14 +39,30 @@ const removeAccountData = () => (dispatch) => {
 const updateAccountAvatar = (url) => async (dispatch, getState) => {
   dispatch(updateRequested());
   const accountData = getState().account.entity;
+  if (accountData?.avatar === url) {
+    return;
+  }
+  const newData = {
+    ...accountData,
+    avatar: url,
+  };
   try {
-    if (accountData?.avatar === url) {
-      return;
-    }
-    const newData = {
-      ...accountData,
-      avatar: url,
-    };
+    const { content } = await userService.update(newData);
+    dispatch(updated(content));
+  } catch (error) {
+    dispatch(updateFailed());
+    dispatch(handleError(error));
+  }
+};
+
+const updateAccountSkills = (payload) => async (dispatch, getState) => {
+  dispatch(updateRequested());
+  const accountData = getState().account.entity;
+  const newData = {
+    ...accountData,
+    skills: payload,
+  };
+  try {
     const { content } = await userService.update(newData);
     dispatch(updated(content));
   } catch (error) {
@@ -91,4 +107,5 @@ export {
   removeAccountData,
   updateAccountAvatar,
   updateBookmarks,
+  updateAccountSkills,
 };
