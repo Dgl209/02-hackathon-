@@ -32,16 +32,18 @@ function CreateTeamForm() {
   useEffect(() => {}, [watchImage]);
 
   const onSubmit = (data) => {
+    if (!data.image[0]) {
+      return toast.error("Upload image");
+    }
     if (data.projects.length < 3) {
       return toast.error("Upload at least three project images");
     }
+
     const id = nanoid();
     dispatch(
       createTeam({ ...data, id, leader, members: [leader], role: "general" })
     );
   };
-
-  const handleImageClick = () => {};
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -51,7 +53,6 @@ function CreateTeamForm() {
           register={register}
           uploadedFile={uploadedImage}
           inputRef={imageRef}
-          onImageClick={handleImageClick}
           hoverContent=""
         />
       </div>

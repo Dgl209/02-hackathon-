@@ -33,17 +33,18 @@ function TeamProjectsField({
 
   return (
     <div>
-      <div className="grid grid-cols-4 h-28 mb-10">
+      <div className="grid grid-cols-4 h-28 mb-6">
         {fields.map((field, index) => (
-          <ImageField
-            key={field.id}
-            uploadedFile={uploadedImagesArray[index]}
-            onImageClick={handleImageClick}
-            index={index}
-            register={register}
-            inputRef={inputRef}
-            id={`projects.${index}`}
-          />
+          <div className="h-28" key={field.id}>
+            <ImageField
+              uploadedFile={uploadedImagesArray[index]}
+              onImageClick={handleImageClick}
+              index={index}
+              register={register}
+              inputRef={inputRef}
+              id={`projects.${index}`}
+            />
+          </div>
         ))}
       </div>
       {fields.length < 4 && (

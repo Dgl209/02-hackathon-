@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function ProgressBar({ color, completed, label }) {
-  return completed ? (
+  return (
     <>
       <div className="font-semibold">{label}</div>
       <div className="w-1/4 bg-gray-200 rounded-full h-5 ">
@@ -14,11 +14,11 @@ function ProgressBar({ color, completed, label }) {
         </div>
       </div>
     </>
-  ) : null;
+  );
 }
 
 ProgressBar.defaultProps = {
-  completed: null,
+  completed: 0,
 };
 
 ProgressBar.propTypes = {

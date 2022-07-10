@@ -71,6 +71,7 @@ const updateMembers = (memberId, teamId) => async (dispatch, getState) => {
   }
   try {
     const { content } = await teamService.update(newData);
+    console.log("content: ", content);
     dispatch(updated(content));
   } catch (error) {
     dispatch(updateFailed());

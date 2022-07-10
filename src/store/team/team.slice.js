@@ -24,7 +24,7 @@ const teamSlice = createSlice({
       state.entities.push(action.payload);
     },
     updated: (state, action) => {
-      state.entities.forEach((item) => {
+      state.entities = state.entities.map((item) => {
         if (item.id === action.payload.id) {
           return action.payload;
         }
