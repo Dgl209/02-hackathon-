@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Card, List, Slider } from "../../common";
+import { Breadcrumb, Button, Card, List, Slider } from "../../common";
 import DefaultTeamImg from "../../../assets/defaultTeamImg.jpg";
 import TeamMember from "../teamMember/teamMember";
 import { updateMembers } from "../../../store/team/team.actions";
@@ -23,6 +23,9 @@ function TeamDetails() {
 
   return team ? (
     <div className="container mx-auto p-6">
+      <div className="mb-6">
+        <Breadcrumb items={[{ name: "Teams", path: "/teams" }]} />
+      </div>
       <Card className="flex flex-col items-center justify-center">
         <div className="flex justify-between w-full">
           <img
