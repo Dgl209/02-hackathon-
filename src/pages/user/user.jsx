@@ -34,7 +34,7 @@ function User() {
         <UserProfile user={user} id={id} />
         <UserInformation user={user} />
       </div>
-      <div className="mt-6">
+      <div className="mt-6 w-full">
         <h5 className="mb-2 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
           User skills
         </h5>

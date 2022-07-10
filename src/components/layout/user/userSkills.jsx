@@ -4,7 +4,7 @@ import { Card, ProgressBar } from "../../common";
 
 function UserSkills({ user }) {
   return (
-    <Card>
+    <Card className="w-full flex flex-col space-y-2 px-20">
       <ProgressBar
         color="bg-purple-700"
         completed={user?.skills?.html}

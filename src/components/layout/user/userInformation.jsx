@@ -43,9 +43,9 @@ function UserInformation({ user }) {
           className="absolute right-0"
         >
           {!inBookmarks ? (
-            <BookmarkOutlineIcon className="w-6 h-6 text-gray-700" />
+            <BookmarkOutlineIcon className="w-6 h-6 text-purple-700" />
           ) : (
-            <BookmarkSolidIcon className="w-6 h-6 text-gray-700" />
+            <BookmarkSolidIcon className="w-6 h-6 text-purple-700" />
           )}
         </button>
         <div className="flex flex-col justify-between space-y-2 h-[70%]">
