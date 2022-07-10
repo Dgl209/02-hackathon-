@@ -11,6 +11,7 @@ function TeamsUploader({ children }) {
   const dispatch = useDispatch();
   const teams = useSelector(getTeamsList());
   const isLoading = useSelector(getTeamsLoadingStatus());
+
   useEffect(() => {
     if (!teams?.length) {
       dispatch(loadTeams());

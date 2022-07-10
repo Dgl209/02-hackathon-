@@ -27,7 +27,7 @@ const appRoutes = [
     element: <User />,
   },
   {
-    path: "/user/:id/edit",
+    path: "/user/edit",
     element: (
       <PrivateRoute>
         <EditUser />
