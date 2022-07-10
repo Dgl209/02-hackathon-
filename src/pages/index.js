@@ -7,6 +7,7 @@ import CreateTeam from "./createTeam/createTeam";
 import Teams from "./teams/teams";
 import NotFound from "./notFound/notFound";
 import EditUser from "./editUser/editUser";
+import Reviews from "./reviews/reviews";
 
 export {
   Main,
@@ -18,4 +19,5 @@ export {
   Teams,
   NotFound,
   EditUser,
+  Reviews,
 };

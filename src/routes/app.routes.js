@@ -10,6 +10,7 @@ import {
   Teams,
   NotFound,
   EditUser,
+  Reviews,
 } from "../pages";
 import { PrivateRoute } from "../hoc";
 
@@ -25,6 +26,14 @@ const appRoutes = [
   {
     path: "/user/:id",
     element: <User />,
+  },
+  {
+    path: "/reviews",
+    element: (
+      <PrivateRoute>
+        <Reviews />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/user/edit",
