@@ -38,11 +38,11 @@ function UserInformation({ user }) {
           )}
         </button>
       </div>
-      <div className="flex flex-col justify-between space-y-2 h-[70%]">
-        <h5 className="text-3xl font-bold underline tracking-tight text-gray-700 dark:text-white">
+      <div className="flex flex-col justify-between space-y-5 h-[70%]">
+        <h5 className="mb-5 text-3xl font-bold underline tracking-tight text-gray-700 dark:text-white">
           {user?.fullName}
         </h5>
-        <div>
+        <div className="mb-5">
           <Badge name={user?.speciality} />
         </div>
         <div className="text-lg">Возраст: {user?.age}</div>

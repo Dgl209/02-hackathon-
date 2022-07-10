@@ -30,12 +30,12 @@ function User() {
       <div className="mb-6">
         <Breadcrumb />
       </div>
-      <div className="flex justify-around">
+      <div className="flex justify-evenly">
         <UserProfile user={user} id={id} />
         <UserInformation user={user} />
       </div>
       <div className="mt-6">
-        <h5 className="mb-2 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
+        <h5 className="mb-2 text-center text-3xl font-bold tracking-tight text-gray-700 dark:text-white">
           User skills
         </h5>
         <UserSkills user={user} />

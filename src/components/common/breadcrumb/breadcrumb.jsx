@@ -29,7 +29,7 @@ function Breadcrumb({ items }) {
           <li key={item.path}>
             <div className="flex items-center">
               <svg
-                className="w-6 h-6 text-gray-400"
+                className="w-6 h-6 text-purple-400"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
