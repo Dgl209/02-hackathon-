@@ -17,7 +17,7 @@ function TeamDetails() {
   const MembersList = List(TeamMember);
 
   const handleJoinTeam = () => {
-    dispatch(updateMembers(currentUserId, id));
+    dispatch(updateMembers(currentUserId, team.id));
     setInTeam((prev) => !prev);
   };
 

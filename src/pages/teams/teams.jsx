@@ -12,7 +12,12 @@ function Teams() {
   return (
     <div className="container mx-auto p-6">
       {teams?.length ? (
-        <TeamsList items={teams} />
+        <>
+          <h3 className="mb-5 text-2xl text-center font-medium text-gray-900 dark:text-white">
+            Teams
+          </h3>
+          <TeamsList items={teams} />
+        </>
       ) : (
         <div className="w-full flex flex-col items-center space-y-3 justify-center pt-6">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">

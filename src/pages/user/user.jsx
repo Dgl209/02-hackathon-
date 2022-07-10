@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { updateAccountAvatar } from "../../store/account/account.actions";
 import DefaultUserImg from "../../assets/defaultUserImg.png";
-import { Button } from "../../components/common";
+import { Badge, Button } from "../../components/common";
 import { getAccountId } from "../../store/auth/auth.selectors";
 import { logOut } from "../../store/auth/auth.actions";
 import { customHistory } from "../../utils/core";
@@ -62,7 +62,7 @@ function User() {
     <div className="container mx-auto flex p-6">
       <div className="p-10 mr-10 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
         <img
-          className="w-[300px] p-2 rounded-full ring-2 ring-purple-500"
+          className="w-[300px] h-[200px] p-2 rounded-full ring-2 ring-purple-500"
           src={user?.avatar || DefaultUserImg}
           alt=""
         />
@@ -98,13 +98,18 @@ function User() {
         </div>
       </div>
       <div className="p-10 w-full bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-        <h5 className="mb-10 text-3xl font-bold underline tracking-tight text-gray-700 dark:text-white">
-          {user?.fullName}
-        </h5>
-        <div className="text-lg mb-10">Возраст: {user?.age}</div>
-        <p className="font-normal text-lg text-gray-700 dark:text-gray-400">
-          Немного о себе: {user?.about}
-        </p>
+        <div className="flex flex-col justify-between h-[70%]">
+          <h5 className="text-3xl font-bold underline tracking-tight text-gray-700 dark:text-white">
+            {user?.fullName}
+          </h5>
+          <div>
+            <Badge name={user?.speciality} />
+          </div>
+          <div className="text-lg">Возраст: {user?.age}</div>
+          <p className="font-normal text-lg text-gray-700 dark:text-gray-400">
+            Немного о себе: {user?.about}
+          </p>
+        </div>
       </div>
     </div>
   );
